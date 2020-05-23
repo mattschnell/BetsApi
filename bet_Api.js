@@ -48,3 +48,17 @@ router.use(function (req,res,next) {
 // you can test GETs with a browser using URL http://localhost:3000/api/restaurants or http://localhost:3000/api/restaurants/30075445
 // recommend Postman app for testing other verbs, find it at https://www.postman.com/
 
+
+
+
+
+
+// start server running on port 3000 (or whatever is set in env)
+app.use(express.static(__dirname + '/'));
+app.use("/",router);
+app.set( 'port', ( process.env.PORT || config.port || 3000 ));
+
+app.listen(app.get( 'port' ), function() {
+	console.log( 'Node server is running on port ' + app.get( 'port' ));
+	console.log( 'Environment is ' + env);
+});
